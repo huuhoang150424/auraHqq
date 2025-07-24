@@ -1,0 +1,426 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --font-sans:
+      ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji'; /* Default font for body */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+    font-family: var(--font-sans); /* Sử dụng biến font từ layout.tsx */
+  }
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Aura Backgrounds */
+.minecraft-world-light {
+  background: linear-gradient(180deg, #f0f2f5 0%, #e0e2e5 30%, #d0d2d5 100%); /* Light gradient */
+  position: relative;
+}
+
+.minecraft-world-dark {
+  background: linear-gradient(180deg, #000000 0%, #0f0f23 30%, #1a1a2e 100%);
+  position: relative;
+}
+
+/* Minecraft Grid Pattern */
+.minecraft-dark-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+    /* Increased opacity */ linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px); /* Increased opacity */
+  background-size: 25px 25px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.minecraft-light-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px),
+    /* Increased opacity */ linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px); /* Increased opacity */
+  background-size: 25px 25px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Aura Particles */
+.aura-particle {
+  position: absolute;
+  width: 4px; /* Slightly larger particles */
+  height: 4px; /* Slightly larger particles */
+  border-radius: 50%;
+  animation: aura-float 8s ease-in-out infinite;
+}
+
+.minecraft-world-dark .aura-particle {
+  background: radial-gradient(circle, #06b6d4, #8b5cf6);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.9); /* Stronger glow */
+}
+
+.minecraft-world-light .aura-particle {
+  background: radial-gradient(circle, #8b5cf6, #06b6d4); /* Invert colors or use lighter shades */
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.7); /* Stronger glow */
+}
+
+@keyframes aura-float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Aura Glow Effects */
+.aura-glow {
+  position: relative;
+}
+
+.aura-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #8b5cf6, #06b6d4, #8b5cf6);
+  border-radius: inherit;
+  z-index: -1;
+  animation: aura-rotate 3s linear infinite;
+}
+
+@keyframes aura-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.aura-text {
+  background: linear-gradient(45deg, #8b5cf6, #06b6d4, #a855f7);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aura-gradient 3s ease infinite;
+}
+
+@keyframes aura-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Navigation Aura */
+.nav-item-aura {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-item-aura::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+}
+
+.nav-item-aura:hover::after {
+  width: 100%;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  transform-origin: left;
+  animation: scroll-progress linear;
+  animation-timeline: scroll();
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles for elements that will be toggled */
+.pixelated-font {
+  font-family: 'Courier New', monospace;
+  -webkit-font-smoothing: none; /* Tắt làm mịn font cho hiệu ứng pixel */
+  image-rendering: pixelated; /* Đảm bảo hình ảnh pixelated không bị làm mờ */
+}
+
+/* Minecraft-inspired styles (áp dụng khi KHÔNG ở chế độ casual) */
+html:not(.casual) {
+  .minecraft-font,
+  .minecraft-text,
+  .minecraft-input,
+  .minecraft-badge {
+    @apply pixelated-font;
+  }
+
+  .minecraft-font {
+    font-weight: bold;
+  }
+
+  .minecraft-text {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .minecraft-card {
+    border-radius: 4px; /* Góc vuông hơn */
+  }
+
+  .minecraft-world-dark .minecraft-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow:
+      4px 4px 0px rgba(6, 182, 212, 0.2),
+      0 0 20px rgba(6, 182, 212, 0.1);
+    color: white;
+  }
+
+  .minecraft-world-light .minecraft-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(100, 100, 100, 0.4);
+    box-shadow:
+      4px 4px 0px rgba(100, 100, 100, 0.2),
+      0 0 15px rgba(100, 100, 100, 0.1);
+    color: #333;
+  }
+
+  .minecraft-card:hover {
+    box-shadow:
+      6px 6px 0px rgba(6, 182, 212, 0.3),
+      0 0 30px rgba(6, 182, 212, 0.2);
+    transform: translate(-2px, -2px);
+  }
+
+  .minecraft-world-dark .minecraft-card:hover {
+    border-color: rgba(6, 182, 212, 0.8);
+  }
+
+  .minecraft-world-light .minecraft-card:hover {
+    border-color: rgba(100, 100, 100, 0.6);
+    box-shadow:
+      6px 6px 0px rgba(100, 100, 100, 0.3),
+      0 0 20px rgba(100, 100, 100, 0.15);
+  }
+
+  .minecraft-button {
+    border-radius: 4px; /* Góc vuông hơn */
+  }
+
+  .minecraft-world-light .minecraft-button {
+    background: linear-gradient(135deg, #a855f7, #38bdf8);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 3px 3px 0px rgba(59, 130, 246, 0.2);
+    color: white;
+  }
+
+  .minecraft-button:hover {
+    box-shadow: 4px 4px 0px rgba(6, 182, 212, 0.3);
+    transform: translate(-1px, -1px);
+    background: linear-gradient(135deg, #7c3aed, #0891b2);
+  }
+
+  .minecraft-world-light .minecraft-button:hover {
+    background: linear-gradient(135deg, #9333ea, #0ea5e9);
+    border-color: rgba(59, 130, 246, 0.8);
+  }
+
+  .minecraft-button:active {
+    box-shadow: 1px 1px 0px rgba(6, 182, 212, 0.2);
+    transform: translate(2px, 2px);
+  }
+
+  .minecraft-input {
+    border-radius: 4px; /* Góc vuông hơn */
+  }
+
+  .minecraft-world-dark .minecraft-input {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  .minecraft-world-light .minecraft-input {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(100, 100, 100, 0.4);
+    color: #333;
+  }
+
+  .minecraft-input:focus {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+    border-color: #06b6d4;
+  }
+
+  .minecraft-world-light .minecraft-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+  }
+
+  .minecraft-badge {
+    border-radius: 4px; /* Góc vuông hơn */
+  }
+
+  .minecraft-world-dark .minecraft-badge {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  .minecraft-world-light .minecraft-badge {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(100, 100, 100, 0.4);
+    color: #333;
+  }
+
+  .minecraft-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px rgba(6, 182, 212, 0.2);
+  }
+}
+
+/* Ẩn thanh cuộn */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE và Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .minecraft-text {
+    font-size: 14px;
+  }
+
+  .minecraft-font {
+    font-size: 1.5rem;
+  }
+
+  .minecraft-card {
+    box-shadow: 2px 2px 0px rgba(6, 182, 212, 0.2);
+  }
+
+  .minecraft-card:hover {
+    box-shadow: 3px 3px 0px rgba(6, 182, 212, 0.3);
+    transform: translate(-1px, -1px);
+  }
+
+  .floating-block-smooth {
+    animation-duration: 12s;
+  }
+
+  .aura-particle {
+    animation-duration: 10s;
+  }
+}
+
+/* Reduced motion for performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floating-block-smooth,
+  .aura-particle,
+  .aura-glow {
+    animation: none !important;
+  }
+}
+
+/* GPU acceleration for critical elements */
+.minecraft-card,
+.minecraft-button,
+.floating-block-smooth,
+.aura-particle {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
