@@ -21,7 +21,7 @@ export function Footer({ translations }: FooterProps) {
     >
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-gray-600 dark:text-gray-400 minecraft-text flex items-center justify-center gap-2">
-          © 2024 CodeCraft Team. {t.footerText}
+          © 2025 Aura Team. {t.footerText}
           <Heart className="w-4 h-4 text-red-500 animate-pulse" />
           <Coffee className="w-4 h-4 text-brown-500" />
         </p>

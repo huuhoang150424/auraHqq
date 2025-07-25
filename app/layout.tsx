@@ -6,10 +6,12 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'CodeCraft Team - Enhanced Portfolio',
+  title: 'Aura team',
   description:
-    'Professional team portfolio with vibrant 3D effects, Minecraft-style design, and multilingual support',
-  generator: 'v0.dev',
+    'Aura team ',
+  icons: {
+    icon: './icon.png'
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

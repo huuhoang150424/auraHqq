@@ -45,14 +45,14 @@ export function ProjectSearchFilter({
           className="minecraft-input pl-10"
         />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 ">
         <Filter className="w-4 h-4 text-gray-600" />
         <select
           value={selectedCategory}
           onChange={(e) => handleFilter(e.target.value)}
-          className="minecraft-input"
+          className="minecraft-input px-4 py-2 border border-gray-200  "
         >
-          <option value="all">{t.allCategories}</option>
+          <option  value="all">{t.allCategories}</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}

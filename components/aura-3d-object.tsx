@@ -54,9 +54,7 @@ export function Aura3DObject({ size = 'w-64 h-64', className = '' }: Aura3DObjec
         gl={{ antialias: true }}
         dpr={[1, 2]}
       >
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={0.8} />
+        <Suspense fallback={null}>\
           <AuraBox />
           <Environment preset="sunset" />
           <OrbitControls

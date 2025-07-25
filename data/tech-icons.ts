@@ -16,16 +16,6 @@ export const techIconsData = [
     color: 'black',
   },
   {
-    name: 'Vue.js',
-    image: 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
-    color: 'green',
-  },
-  {
-    name: 'Angular',
-    image: 'https://cdn.simpleicons.org/angular/DD0031',
-    color: 'red',
-  },
-  {
     name: 'TypeScript',
     image: 'https://cdn.simpleicons.org/typescript/3178C6',
     color: 'blue',
@@ -49,7 +39,7 @@ export const techIconsData = [
   },
   {
     name: 'Express.js',
-    image: 'https://cdn.simpleicons.org/express/000000',
+    image: 'https://cdn.simpleicons.org/express/007acc',
     color: 'black',
   },
   {
@@ -57,29 +47,6 @@ export const techIconsData = [
     image: 'https://cdn.simpleicons.org/nestjs/E0234E',
     color: 'red',
   },
-
-  // Backend - Python
-  {
-    name: 'Python',
-    image: 'https://cdn.simpleicons.org/python/3776AB',
-    color: 'blue',
-  },
-  {
-    name: 'Django',
-    image: 'https://cdn.simpleicons.org/django/092E20',
-    color: 'green',
-  },
-  {
-    name: 'FastAPI',
-    image: 'https://cdn.simpleicons.org/fastapi/009688',
-    color: 'teal',
-  },
-  {
-    name: 'Flask',
-    image: 'https://cdn.simpleicons.org/flask/000000',
-    color: 'black',
-  },
-
   // Backend - Java
   {
     name: 'Java',
@@ -90,28 +57,6 @@ export const techIconsData = [
     name: 'Spring Boot',
     image: 'https://cdn.simpleicons.org/springboot/6DB33F',
     color: 'green',
-  },
-  {
-    name: 'Spring',
-    image: 'https://cdn.simpleicons.org/spring/6DB33F',
-    color: 'green',
-  },
-
-  // Backend - PHP
-  {
-    name: 'PHP',
-    image: 'https://cdn.simpleicons.org/php/777BB4',
-    color: 'purple',
-  },
-  {
-    name: 'Laravel',
-    image: 'https://cdn.simpleicons.org/laravel/FF2D20',
-    color: 'red',
-  },
-  {
-    name: 'CodeIgniter',
-    image: 'https://cdn.simpleicons.org/codeigniter/EF4223',
-    color: 'red',
   },
 
   // Mobile Development
@@ -125,17 +70,6 @@ export const techIconsData = [
     image: 'https://cdn.simpleicons.org/dart/0175C2',
     color: 'blue',
   },
-  {
-    name: 'Kotlin',
-    image: 'https://cdn.simpleicons.org/kotlin/7F52FF',
-    color: 'purple',
-  },
-  {
-    name: 'Swift',
-    image: 'https://cdn.simpleicons.org/swift/FA7343',
-    color: 'orange',
-  },
-
   // Databases
   {
     name: 'MongoDB',
@@ -164,16 +98,6 @@ export const techIconsData = [
   },
 
   // Cloud & DevOps
-  {
-    name: 'AWS',
-    image: 'https://cdn.simpleicons.org/amazonaws/232F3E',
-    color: 'orange',
-  },
-  {
-    name: 'Google Cloud',
-    image: 'https://cdn.simpleicons.org/googlecloud/4285F4',
-    color: 'blue',
-  },
   {
     name: 'Docker',
     image: 'https://cdn.simpleicons.org/docker/2496ED',
@@ -205,10 +129,5 @@ export const techIconsData = [
     name: 'Postman',
     image: 'https://cdn.simpleicons.org/postman/FF6C37',
     color: 'orange',
-  },
-  {
-    name: 'VS Code',
-    image: 'https://cdn.simpleicons.org/visualstudiocode/007ACC',
-    color: 'blue',
-  },
+  }
 ];

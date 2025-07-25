@@ -6,7 +6,7 @@ export const teamMembersData = (language: string) => [
     role: language === 'en' ? 'Full-Stack Developer' : 'Lập Trình Viên Full-Stack',
     skills: ['React', 'Node.js', 'mariadb', 'TypeScript'],
     avatar:
-      'https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/473617857_1148551596894386_4550575089446314104_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=dNwj9lXqN3cQ7kNvwHx2HuW&_nc_oc=AdncRH1TXQYJI7-s9tmUXa3c2fDvJrtN0rAlR1YC6KouGfBpXRtblvBIGuYyKhHJjd4&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&_nc_gid=-C3EfLspkJuDiNhmGtdMVw&oh=00_AfSYT44Vr-ITusSfEbHxLc_Y0Ygq4dD6uZjE2nrMj512YA&oe=687E4CA4',
+      'https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/501784216_2791970817679515_5422156454168742973_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ky64s-dMBzkQ7kNvwFwfb_v&_nc_oc=AdmpekQ3Av8XiTX-f2Ndfc3endiEhPDShg2-KWxFv87PFuj8EFi7YGp5aNZte4jbPJs&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&_nc_gid=85DV4WkcmDyIZDupeBZufw&oh=00_AfQHccP1WLNDlCue950KU1vxHEvT_Eai010xSaSCFR5rHA&oe=6888B9C7',
     github: 'https://github.com/tmquang0209',
     linkedin: '',
     bio:
@@ -27,7 +27,7 @@ export const teamMembersData = (language: string) => [
     role: language === 'en' ? 'Mobile developer' : 'Lập trinh viên Mobile',
     skills: ['React', 'Fluter', 'java'],
     avatar:
-      'https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/481251418_1175026190913593_6065547444278603320_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=VzkzVEDIqC4Q7kNvwGA0CZ3&_nc_oc=AdlTaXEF3a83SI9T4kmamai8wwjwD_C_i808qtgoP01OlO1FP1LjRAe4klbi9TACwZ4&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&_nc_gid=soEwHlsL5MoUyjRIf9Uxkg&oh=00_AfQM_oIh2IgeMmouX8hN0k4IWGPPWpSl0WzbI72l6Nsnbw&oe=687E77AC',
+      'https://avatars.githubusercontent.com/u/111066440?v=4',
     github: 'https://github.com/DrawTok',
     linkedin: '',
     bio:
@@ -42,9 +42,9 @@ export const teamMembersData = (language: string) => [
     id: 3,
     name: 'Nguyen Huu Hoang',
     role: language === 'en' ? 'Backend Developer' : 'Lập Trình Viên Backend',
-    skills: ['Laravel', 'Python', 'PostgreSQL', 'AWS'],
+    skills: ['node.js', 'Python', 'java', 'mysql'],
     avatar:
-      'https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/485683367_1196462345436644_5088059969184010654_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4PA_YCKQgooQ7kNvwGGJhon&_nc_oc=AdkD7fdtgtTqu4tZv9lgbqWy42PMy-Bo4O-HLHuwPDSoJH1lpmFNjJbTmPJIf_OZl-I&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&_nc_gid=AOT8VwOI3BKo89OgROsebQ&oh=00_AfSfPKF7V8eDr76VDYnOCeHdWTKWhBO4qFje1BkL7As76Q&oe=687E702C',
+      'https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/484813610_1194945058921706_5113727452917262401_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=t5BYpAe_xCwQ7kNvwHVZP7R&_nc_oc=AdnQ12WuEG07g8IsRsgETxLMC0SCLwNK72OD2Yq-ZNKVH0HWH8oEzt00s50AwBCEIsk&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&_nc_gid=kH-uYgA7qWYqrzXd7t5Htw&oh=00_AfSse84un92NzEZJT4WQl3ibmnijFx4ZawladbZ2j9wtsQ&oe=6888B36E',
     github: 'https://github.com/huuhoang150424',
     linkedin: 'https://www.linkedin.com/in/ho%C3%A0ng-nguyen-9692b3272/',
     bio:
@@ -54,8 +54,6 @@ export const teamMembersData = (language: string) => [
     projects: ['API Gateway', 'Microservices Architecture', 'Cloud Migration'],
     experience: '0+ years',
     achievements: [
-      '☁️ Cloud Architecture Expert',
-      '🔒 Security Specialist',
       '⚡ Performance Optimizer',
     ],
   },
