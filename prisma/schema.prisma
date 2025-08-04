@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -15,7 +14,7 @@ model Project {
   imageUrls    String[]  @map("image_urls")
   demoLink     String?   @map("demo_link")
   sourceLinks  String[]  @map("source_links")
-  technologies String[]  
+  technologies String[]
   duration     Int?
   category     String?
   memberCount  Int?      @map("member_count")

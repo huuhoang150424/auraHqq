@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -22,7 +22,8 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
-
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation';
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
   { name: "Members", href: "/dashboard/members", icon: Users },
@@ -40,6 +41,9 @@ export default function AdminLayout({
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
 
   const Sidebar = ({ mobile = false }: { mobile?: boolean }) => (
     <div className="flex flex-col h-full">
@@ -79,7 +83,7 @@ export default function AdminLayout({
             sidebarCollapsed && !mobile ? "w-full justify-center px-3" : "w-full justify-start",
           )}
           onClick={() => {
-            console.log("Logout")
+            signOut({ callbackUrl: "/auth/login" });
           }}
         >
           <LogOut className="h-4 w-4" />
