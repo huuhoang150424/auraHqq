@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -75,6 +75,23 @@ export default function ProjectsPage() {
       project.category.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
+  const getProjects = async () => {
+    const response = await fetch("/api/projects")
+    const data = await response.json()
+    setProjects(data)
+  }
+  useEffect(() => {
+    getProjects()
+  }, [])
+
+  const createProject = async (project: any) => {
+    const response = await fetch("/api/projects", {
+      method: "POST",
+      body: JSON.stringify(project),
+    })
+    const data = await response.json()
+    setProjects([...projects, data])
+  }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const projectData = {

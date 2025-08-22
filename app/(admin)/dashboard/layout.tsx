@@ -24,6 +24,9 @@ import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation';
+import { Toaster } from "@/components/ui/sonner"
+
+
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
   { name: "Members", href: "/dashboard/members", icon: Users },
@@ -160,6 +163,7 @@ export default function AdminLayout({
         {/* Page Content */}
         <main className="flex-1 overflow-auto p-4 bg-gray-50 dark:bg-gray-900">{children}</main>
       </div>
+      <Toaster />
     </div>
   )
 }
