@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 
 // Data Imports
-import { teamMembersData } from '@/data/team-members';
+import { TeamMember, teamMembersData } from '@/data/team-members';
 import { projectsData } from '@/data/projects';
 import { blogPostsData } from '@/data/blog-posts';
 import { servicePackagesData } from '@/data/service-packages';
@@ -47,7 +47,21 @@ export default function AdvancedTeamPortfolio() {
     document.documentElement.classList.toggle('casual', themeStyle === 'casual');
   }, [theme, themeStyle]);
 
-  const teamMembers = useMemo(() => teamMembersData(language), [language]);
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      const data = await teamMembersData(language);
+      if (isMounted) setTeamMembers(data);
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [language]);
+
   const projects = useMemo(() => projectsData(language), [language]);
   const blogPosts = useMemo(() => blogPostsData(language), [language]);
   const servicePackages = useMemo(() => servicePackagesData(t), [t]);
