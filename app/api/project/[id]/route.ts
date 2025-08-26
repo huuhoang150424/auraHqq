@@ -57,7 +57,7 @@ export async function GET(
   }
 }
 
-export async function PATCH(
+export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
@@ -192,6 +192,63 @@ export async function PATCH(
       { status: 500 }
     );
   }
+}
+
+export async function PATCH(
+    request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const projectId = parseInt(params.id);
+  if (isNaN(projectId)) {
+    return NextResponse.json(
+      {
+        status: 400,
+        success: false,
+        message: "Invalid project ID",
+      },
+      { status: 400 }
+    );
+  }
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return NextResponse.json(
+      {
+        status: 401,
+        success: false,
+        message: "Unauthorized",
+      },
+      { status: 401 }
+    );
+  }
+
+  const existingProject = await prisma.project.findUnique({
+    where: { id: projectId },
+  });
+  if (!existingProject) {
+    return NextResponse.json(
+      {
+        status: 404,
+        success: false,
+        message: "Project not found",
+      },
+      { status: 404 }
+    );
+  }
+
+  const updatedProject = await prisma.project.update({
+      where: { id: projectId },
+      data: {
+        isHidden: !!existingProject.isHidden,
+      },
+    });
+
+    return NextResponse.json({
+      status: 200,
+      success: true,
+      message: "Project updated successfully",
+      project: updatedProject,
+    });
 }
 
 export async function DELETE(
