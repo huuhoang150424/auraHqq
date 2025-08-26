@@ -198,6 +198,18 @@ export async function PATCH(
     request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const body = await request.json();
+  if (!body || typeof body !== 'object') {
+    return NextResponse.json(
+      {
+        status: 400,
+        success: false,
+        message: "Invalid request body",
+      },
+      { status: 400 }
+    );
+  }
+  const { isHidden } = body;
   const projectId = parseInt(params.id);
   if (isNaN(projectId)) {
     return NextResponse.json(
@@ -239,7 +251,7 @@ export async function PATCH(
   const updatedProject = await prisma.project.update({
       where: { id: projectId },
       data: {
-        isHidden: !!existingProject.isHidden,
+        isHidden,
       },
     });
 
